@@ -15,6 +15,7 @@ structures - stores structures required to run the app
 utils - stores utility functions
 
 Database layout:
+```text
                     Table "public.users_pfps"
  Column  |         Type          | Collation | Nullable | Default
 ---------+-----------------------+-----------+----------+---------
@@ -33,3 +34,4 @@ Database layout:
  tag_blacklist | character varying(500)      |           |          |
  admin         | boolean                     |           | not null |
  rep           | integer                     |           | not null |
+ ```
