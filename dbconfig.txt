@@ -1,0 +1,9 @@
+CREATE TABLE public.users
+( user_id serial PRIMARY KEY,
+ user_login VARCHAR ( 50 ) UNIQUE NOT NULL,
+ user_password VARCHAR ( 64 ) NOT NULL,
+ created_on TIMESTAMP NOT NULL,
+ last_login TIMESTAMP,
+ tag_whitelist VARCHAR ( 500 ),
+ tag_blacklist VARCHAR ( 500 ));
+

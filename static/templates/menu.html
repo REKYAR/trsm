@@ -1,0 +1,34 @@
+{{define "menu"}}
+<html>
+{{if .LoggedIn}}
+    {{if .Admin}}
+        {{template "admin_menu" .}}
+    {{else}}
+        {{template "regular_menu" .}}
+    {{end}}
+{{else}}
+    {{template "logged_out_menu" .}}
+{{end}}
+
+
+</html>
+{{ end}}
+
+
+{{define "regular_menu"}}
+<html>
+ <a href="/profile/{{.Id}}">My Profile</a> | <a href="/create">Create Post</a> | <a href="/logout">Log out</a> | <a href="/delete_account">Delete account</a> |<br>
+</html>
+{{ end}}
+
+{{define "admin_menu"}}
+<html>
+<a href="/profile/{{.Id}}">My Profile</a> | <a href="/create">Create Post</a> | <a href="/logout">Log out</a> | <a href="/delete_account">Delete account</a> | <a href="/admin_actions">Administrative Panel</a> | <br>
+</html>
+{{ end}}
+
+{{define "logged_out_menu"}}
+<html>
+Logged out | <a href="/register">Register</a> | <a href="/login">Log In</a> <br>
+</html>
+{{ end}}

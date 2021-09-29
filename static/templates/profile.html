@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+{{template "menu" .User}}<br>
+<img src="/pics/pfp_storage/{{.Inspected.PfpPath}}" width="256" height="256"><br>
+{{.Inspected.Login}}<br>
+Points: {{.Inspected.Rep}}<br>
+
+{{ if eq .User.Id  .Inspected.Id }}
+    <a href="/edit_profile"> Edit Profile</a>
+{{end}}
+
+</body>
+</html>

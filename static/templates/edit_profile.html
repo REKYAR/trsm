@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <script>
+        function sendPassword() {
+            password = document.getElementById("password").value;
+            console.log(password);
+            url="ws:"+document.location.host+"/change_password";
+            console.log(url)
+                var socket = new WebSocket(url);
+            socket.onopen= ()=>{
+                console.log("success")
+                socket.send(password);
+            }
+            socket.onclose= (event)=>{
+                console.log(event)
+            }
+            socket.onclose= (event)=>{
+                console.log(event)
+            }
+        }
+    </script>
+    <script>
+        function sendPfp() {
+            console.log("open")
+            image = document.getElementById("file").files[0];
+            console.log(image);
+            url="ws:"+document.location.host+"/change_pfp";
+            console.log(url)
+            var socket = new WebSocket(url);
+            socket.onopen= ()=>{
+                console.log("success")
+                socket.send(image);
+            }
+            socket.onclose= (event)=>{
+                console.log(event)
+            }
+            socket.onclose= (event)=>{
+                console.log(event)
+            }
+        }
+    </script>
+</head>
+<body>
+{{template "menu" .}}<br>
+Change your password:
+<div id="PasswordDiv" >
+    <input type="password" placeholder="password" id="password"><br>
+    <button onclick="sendPassword()"> Submit </button><br>
+</div><br>
+Change your profile picture:
+<div id="PfpDiv"  >
+    <input type="file" id="file"><br>
+    <button onclick="sendPfp()"> Submit </button><br>
+</div>
+</body>
+</html>
